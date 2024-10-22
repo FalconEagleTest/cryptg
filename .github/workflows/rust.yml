@@ -26,8 +26,11 @@ jobs:
             runner: ubuntu-latest
             target: x86_64-pc-windows-gnu
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+
+      - name: Install python
+        uses: actions/setup-python@v5
+        
       - name: Checkout
         uses: actions/checkout@v3
  
