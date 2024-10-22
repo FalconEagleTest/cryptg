@@ -22,7 +22,12 @@ jobs:
             target: armv7-linux-androideabi
             command: cross
           
-    steps:    
+    steps: 
+      - name: Install libunwind
+        run: sudo yum -y install epel-release;sudo yum install libunwind
+        
+
+
       - name: Checkout
         uses: actions/checkout@v3
  
