@@ -29,10 +29,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: PyO3/maturin-action@v1
-        with:
-          command: build
-          args: --release
+      
       - name: Checkout
         uses: actions/checkout@v3
  
@@ -47,7 +44,11 @@ jobs:
         run: |
           curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
           cargo binstall --no-confirm cross
- 
+      - name: Install PyO3
+        uses: PyO3/maturin-action@v1
+        with:
+          command: build
+          args: --release
       - name: Build Binary
         
         run: ${{ matrix.command }} build --verbose --locked --release --target ${{ matrix.target }}
