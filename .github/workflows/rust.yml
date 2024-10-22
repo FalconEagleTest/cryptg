@@ -12,10 +12,10 @@ jobs:
             target: x86_64-unknown-linux-gnu
             command: cargo
           # Android64 config
-          - name: android-arm
-            runner: ubuntu-latest
-            target: aarch64-linux-android
-            command: cross
+          #- name: android-arm
+          #  runner: ubuntu-latest
+          #  target: aarch64-linux-android
+          #  command: cross
           # Android32 config
           - name: android-arm32
             runner: ubuntu-latest
