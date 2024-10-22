@@ -32,7 +32,7 @@ jobs:
       - uses: PyO3/maturin-action@v1
         with:
           command: build
-          args: -- --enable-shared
+          args: --release
       - name: Checkout
         uses: actions/checkout@v3
  
