@@ -40,3 +40,7 @@ jobs:
       - name: Build Binary
         
         run: ${{ matrix.command }} build --verbose --release --target ${{ matrix.target }}
+      - name: zip
+        run: |
+          cd target/release
+          ls
