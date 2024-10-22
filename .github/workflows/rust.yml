@@ -50,7 +50,7 @@ jobs:
           command: build
           args: --release
       - name: Set env
-        run: env PYTHON_CONFIGURE_OPTS="--enable-shared"
+        run: env PYTHON_CONFIGURE_OPTS="--enable-shared"; env PYO3_PYTHON=python3.8
       - name: Build Binary
         
         run: ${{ matrix.command }} build --verbose --locked --release --target ${{ matrix.target }}
