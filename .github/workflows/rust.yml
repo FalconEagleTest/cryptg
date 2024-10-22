@@ -23,9 +23,11 @@ jobs:
             command: cross
           # Win64 config
           - name: win-amd64
-            runner: windows-latest
-            target: x86_64-pc-windows-msvc
+            runner: ubuntu-latest
+            target: x86_64-pc-windows-gnu
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
       - name: Checkout
         uses: actions/checkout@v3
  
@@ -42,4 +44,5 @@ jobs:
           cargo binstall --no-confirm cross
  
       - name: Build Binary
+        
         run: ${{ matrix.command }} build --verbose --locked --release --target ${{ matrix.target }}
