@@ -5,3 +5,4 @@ requires = [
     "wheel>=0.42.0",
     "maturin>=1.2.1",
 ]
+build-backend = "maturin"
