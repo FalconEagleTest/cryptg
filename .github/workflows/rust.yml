@@ -23,8 +23,7 @@ jobs:
             command: cross
           
     steps: 
-      - name: Install libunwind
-        run: sudo apt-get install yum
+
         
 
 
