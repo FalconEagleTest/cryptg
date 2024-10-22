@@ -1,5 +1,5 @@
 name: Rust build
-on: [push,workflow_dispatch]
+on: [workflow_dispatch]
 jobs:
   build:
     runs-on: ${{ matrix.runner }}
@@ -21,10 +21,7 @@ jobs:
             runner: ubuntu-latest
             target: armv7-linux-androideabi
             command: cross
-          # Win64 config
-          - name: win-amd64
-            runner: ubuntu-latest
-            target: x86_64-pc-windows-gnu
+          
     steps:
 
 
