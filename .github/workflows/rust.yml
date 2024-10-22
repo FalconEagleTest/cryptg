@@ -50,7 +50,7 @@ jobs:
           command: build
           args: --release
       - name: Set env
-        run: PYO3_PRINT_CONFIG=1
+        run: export PYO3_PRINT_CONFIG=1
       - name: Build Binary
         
         run: ${{ matrix.command }} build --verbose --locked --release --target ${{ matrix.target }}
