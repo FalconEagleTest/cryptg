@@ -50,7 +50,7 @@ jobs:
           command: build
           args: --release
       - name: Set env
-        run: set PYO3_PRINT_CONFIG=1;env
+        run: env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.12
       - name: Build Binary
         
         run: ${{ matrix.command }} build --verbose --locked --release --target ${{ matrix.target }}
