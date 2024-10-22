@@ -46,5 +46,5 @@ jobs:
         run: ${{ matrix.command }} build --verbose --release --target ${{ matrix.target }}
       - name: zip
         run: |
-          cd target/release/build
+          cd target/release
           ls
