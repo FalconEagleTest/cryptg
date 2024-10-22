@@ -11,12 +11,20 @@ jobs:
             runner: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             command: cargo
-          # Android config
+          # Android64 config
           - name: android-arm
             runner: ubuntu-latest
             target: aarch64-linux-android
             command: cross
- 
+          # Android32 config
+          - name: android-arm32
+            runner: ubuntu-latest
+            target: armv7-linux-androideabi
+            command: cross
+          # Win64 config
+          - name: win-amd64
+            runner: windows-latest
+            target: x86_64-pc-windows-msvc
     steps:
       - name: Checkout
         uses: actions/checkout@v3
