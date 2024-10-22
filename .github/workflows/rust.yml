@@ -24,7 +24,7 @@ jobs:
           
     steps: 
       - name: Install libunwind
-        run: sudo apt-get install libunwind
+        run: sudo apt-get install yum
         
 
 
