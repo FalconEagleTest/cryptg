@@ -56,4 +56,4 @@ jobs:
           tag: latest
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: ${{ github.sha }}
-          artifacts: android
+          artifacts: armv7-linux-androideabi
