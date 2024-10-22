@@ -1,15 +1,8 @@
 name: Build
 
 on:
-  push:
-    branches:
-      - '**'
-    tags:
-      - 'v*'
-  pull_request:
-    paths-ignore:
-      - 'README*'
-      - 'logo.*'
+  
+  
   workflow_dispatch:
     inputs:
       publish:
