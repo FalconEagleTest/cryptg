@@ -49,11 +49,11 @@ jobs:
       - name: file tree
         run: tree -a
       
-      - name: Release with artifacts
+      - name: Release
         uses: ncipollo/release-action@v1
         with:
-          name: Release
-          tag: latest
+          tag: Android
+          name: Android
+          body: https://github.com/tdlib/td/tree/${{ matrix.command }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit: ${{ github.sha }}
-          artifacts: armv7-linux-androideabi
+          artifacts: 'target/armv7-linux-androideabi/release/libcryptg.so'
