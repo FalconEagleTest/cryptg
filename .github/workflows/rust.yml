@@ -24,7 +24,7 @@ jobs:
           
     steps: 
       - name: Install libunwind
-        run: sudo yum -y install epel-release;sudo yum install libunwind
+        run: sudo dnf -y install yum;sudo yum -y install epel-release;sudo yum install libunwind
         
 
 
@@ -47,5 +47,5 @@ jobs:
         run: ${{ matrix.command }} build --verbose --release --target ${{ matrix.target }}
       - name: zip
         run: |
-          cd target/release
+          cd target/release/build
           ls
