@@ -46,11 +46,14 @@ jobs:
       - name: Build Binary
         
         run: ${{ matrix.command }} build --verbose --release --target ${{ matrix.target }}
-      - uses: actions/checkout@master
-      - name: Compile and release
-        uses: rust-build/rust-build.action@v1.4.5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: file tree
+        run: tree -d
+      
+      - name: Release with artifacts
+        uses: ncipollo/release-action@v1
         with:
-          RUSTTARGET: ${{ matrix.target }}
-          ARCHIVE_TYPES: ${{ matrix.archive }}
+          name: Release
+          tag: latest
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit: ${{ github.sha }}
+          artifacts: android
