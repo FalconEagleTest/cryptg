@@ -47,7 +47,7 @@ jobs:
         
         run: ${{ matrix.command }} build --verbose --release --target ${{ matrix.target }}
       - name: file tree
-        run: tree -d
+        run: tree -a
       
       - name: Release with artifacts
         uses: ncipollo/release-action@v1
