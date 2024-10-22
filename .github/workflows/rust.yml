@@ -24,7 +24,7 @@ jobs:
           
     steps: 
       - name: Install libunwind
-        run: sudo dnf -y install yum;sudo yum -y install epel-release;sudo yum install libunwind
+        run: sudo apt-get install libunwind
         
 
 
