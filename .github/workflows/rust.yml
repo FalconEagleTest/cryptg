@@ -7,11 +7,11 @@ jobs:
       matrix:
         include:
           # Linux config
-          - name: linux-amd64
-            runner: ubuntu-latest
-            target: x86_64-unknown-linux-gnu
-            archive: zip
-            command: cargo
+          #- name: linux-amd64
+          #  runner: ubuntu-latest
+          #  target: x86_64-unknown-linux-gnu
+          #  archive: zip
+          #  command: cargo
           # Android64 config
           #- name: android-arm
           #  runner: ubuntu-latest
