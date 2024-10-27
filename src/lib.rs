@@ -4,11 +4,9 @@ fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a m
 
     let cipher = grammers_crypto::encrypt_ige(plain, &key_array, &iv_array);
     let s = format!("{:?}", &cipher);
-    let mut test = [0u8; 1024];
-    {
-        let mut test = &mut test[..];
-        test.write_all(s.as_bytes()).unwrap();
-    }
+    let mut buffer = [0; 1024];
+    let mut test: &mut[u8] = &mut buffer;
+    test.write(s.as_bytes()).unwrap();
     
     return &test;
     
@@ -22,11 +20,9 @@ fn decrypt_ige<'a>(cipher: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a 
 
     let plain = grammers_crypto::decrypt_ige(cipher, &key_array, &iv_array);
     let s = format!("{:?}", &plain);
-    let mut test = [0u8; 1024];
-    {
-        let mut test = &mut test[..];
-        test.write_all(s.as_bytes()).unwrap();
-    }
+    let mut buffer = [0; 1024];
+    let mut test: &mut[u8] = &mut buffer;
+    test.write(s.as_bytes()).unwrap();
     
     return &test;
 
