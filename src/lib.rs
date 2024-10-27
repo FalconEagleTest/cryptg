@@ -3,11 +3,8 @@
 fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a mut [u8; 32]) ->  String  {
 
     let cipher = grammers_crypto::encrypt_ige(plain, &key_array, &iv_array);
-   
-    match String_result::from_utf8(cipher) {
-        Ok(String_result) => return String_result,
-        Err(e) => return"Error: {e}".to_string(),
-    }
+    let s = format!("{:?}", &cipher);
+    return s;
     
 
 
@@ -18,10 +15,8 @@ fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a m
 fn decrypt_ige<'a>(cipher: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a mut [u8; 32]) -> String  {
 
     let plain = grammers_crypto::decrypt_ige(cipher, &key_array, &iv_array);
-    match String_result::from_utf8(plain) {
-        Ok(String_result) => return String_result,
-        Err(e) => return "Error: {e}".to_string(),
-    }
+    let s = format!("{:?}", &plain);
+    return s;
 
 }
 
