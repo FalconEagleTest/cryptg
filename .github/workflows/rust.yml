@@ -62,7 +62,7 @@ jobs:
         if: matrix.name == 'android-arm32'
         uses: ncipollo/release-action@v1  
         with:
-          tag: Android
+          tag: Android_${{ env.NOW }}
           name: Android_${{ env.NOW }}
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -72,8 +72,8 @@ jobs:
         if: matrix.name == 'Windows64'
         uses: ncipollo/release-action@v1
         with:
-          tag: Windows
-          name: Windows_${{ env.NOW }}
+          tag: Windows64_${{ env.NOW }}
+          name: Windows64_${{ env.NOW }}
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: 'target/x86_64-pc-windows-gnu/release/cryptg.dll'
@@ -82,8 +82,8 @@ jobs:
         if: matrix.name == 'Windows32'
         uses: ncipollo/release-action@v1
         with:
-          tag: Windows
-          name: Windows_${{ env.NOW }}
+          tag: Windows32_${{ env.NOW }}
+          name: Windows32_${{ env.NOW }}
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: 'target/i686-pc-windows-gnu/release/cryptg.dll'
