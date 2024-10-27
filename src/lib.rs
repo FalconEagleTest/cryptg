@@ -3,7 +3,7 @@
 fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a mut [u8; 32]) ->  &'a [u8]  {
 
     let cipher = grammers_crypto::encrypt_ige(plain, &key_array, &iv_array);
-    let a: [u8; cipher.len()] = v.try_into().unwrap();
+    let a: [u8; cipher.len()] = cipher.try_into().unwrap();
     return a;
     
 
@@ -15,7 +15,7 @@ fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a m
 fn decrypt_ige<'a>(cipher: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a mut [u8; 32]) -> &'a [u8]   {
 
     let plain = grammers_crypto::decrypt_ige(cipher, &key_array, &iv_array);
-    let a: [u8; plain.len()] = v.try_into().unwrap();
+    let a: [u8; plain.len()] = plain.try_into().unwrap();
     return a;
 
 }
