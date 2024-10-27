@@ -6,7 +6,7 @@ fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a m
     let s = format!("{:?}", &cipher);
     
     
-    return s.as_bytes();
+    return &s.as_bytes();
     
 
 
@@ -20,7 +20,7 @@ fn decrypt_ige<'a>(cipher: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a 
     let s = format!("{:?}", &plain);
     
     
-    return s.as_bytes();
+    return &s.as_bytes();
 
 }
 
