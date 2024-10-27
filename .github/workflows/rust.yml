@@ -52,12 +52,22 @@ jobs:
         run: ${{ matrix.command }} build --verbose --release --target ${{ matrix.target }}
       - name: file tree
         run: tree -a
-      
-      - name: Release
-        uses: ncipollo/release-action@v1
+      - name: Android_release
+        if: matrix.name == 'android-arm32'
+        uses: ncipollo/release-action@v1  
         with:
           tag: Android
           name: Android
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: 'target/armv7-linux-androideabi/release/libcryptg.so'
+
+      - name: Windows_Release
+        if: matrix.name == 'Windows'
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ matrix.command }}
+          name: ${{ matrix.command }}
+          body: https://github.com/tdlib/td/tree/${{ matrix.command }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: 'target/x86_64-pc-windows-gnu/release/cryptg.dll'
