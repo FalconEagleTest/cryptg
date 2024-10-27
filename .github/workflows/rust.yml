@@ -23,11 +23,11 @@ jobs:
             target: armv7-linux-androideabi
             archive: zip
             command: cross
-          #- name: Windows
-          #  runner: ubuntu-latest
-          #  target: x86_64-pc-windows-msvc
-          #  archive: zip
-          #  command: cross
+          - name: Windows
+            runner: ubuntu-latest
+            target: x86_64-pc-windows-gnu
+            archive: zip
+            command: cross
     steps: 
 
         
