@@ -4,8 +4,8 @@ fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a m
 
     let cipher = grammers_crypto::encrypt_ige(plain, &key_array, &iv_array);
     let s = format!("{:?}", &cipher);
-
-    array := [1024]u8{} //initialized an empty array
+    let array: [u8; 1024] = [0; 1024];
+    
     copy(array[:], s.as_bytes()) //copy the elements of slice in newly created array
     return array;
     
@@ -19,7 +19,7 @@ fn decrypt_ige<'a>(cipher: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a 
 
     let plain = grammers_crypto::decrypt_ige(cipher, &key_array, &iv_array);
     let s = format!("{:?}", &plain);
-    array := [1024]u8{} //initialized an empty array
+    let array: [u8; 1024] = [0; 1024];
     copy(array[:], s.as_bytes()) //copy the elements of slice in newly created array
     
     return array;
