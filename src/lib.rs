@@ -1,32 +1,20 @@
 /// Encrypts the input plain text with the 32 bytes key and IV.
 #[no_mangle]
-fn encrypt_ige(plain: &[u8], key: &[u8], iv: &[u8]) ->  Vec<u8> {
-    let mut key_array = [0; 32];
-
-    key_array.copy_from_slice(key);
-
-    let mut iv_array = [0; 32];
-
-    iv_array.copy_from_slice(iv);
+fn encrypt_ige(plain: &[u8], key_array: &mut [i32; 32], iv_array: &mut [i32; 32]) ->  &str {
 
     let cipher = grammers_crypto::encrypt_ige(plain, &key_array, &iv_array);
-    return cipher;
+    let string_cipher = String::from_utf8(cipher);
+    return string_cipher;
 
 }
 
 /// Decrypts the input cipher text with the 32 bytes key and IV.
 #[no_mangle]
-fn decrypt_ige(cipher: &[u8], key: &[u8], iv: &[u8]) -> Vec<u8> {
-    let mut key_array = [0; 32];
-    
-    key_array.copy_from_slice(key);
-
-    let mut iv_array = [0; 32];
-
-    iv_array.copy_from_slice(iv);
+fn decrypt_ige(cipher: &[u8], key_array: &mut [i32; 32], iv_array: &mut [i32; 32]) -> &str {
 
     let plain = grammers_crypto::decrypt_ige(cipher, &key_array, &iv_array);
-    return plain;
+    let string_plain = String::from_utf8(plain);
+    return string_plain;
 
 }
 
