@@ -62,7 +62,7 @@ jobs:
         if: matrix.name == 'android-arm32'
         uses: ncipollo/release-action@v1  
         with:
-          title: Android_${{ env.NOW }}
+          
           tag: android
           name: Android_${{ env.NOW }}
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
@@ -73,7 +73,7 @@ jobs:
         if: matrix.name == 'Windows64'
         uses: ncipollo/release-action@v1
         with:
-          title: Windows64_${{ env.NOW }}
+          
           tag: windows64
           name: Windows64_${{ env.NOW }}
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
@@ -84,7 +84,7 @@ jobs:
         if: matrix.name == 'Windows32'
         uses: ncipollo/release-action@v1
         with:
-          title: Windows32_${{ env.NOW }}
+          
           tag: windows32
           name: Windows32_${{ env.NOW }}
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
