@@ -23,16 +23,22 @@ jobs:
             target: armv7-linux-androideabi
             archive: zip
             command: cross
-          - name: Windows
+          - name: Windows64
             runner: ubuntu-latest
             target: x86_64-pc-windows-gnu
             archive: zip
             command: cross
+          - name: Windows32
+            runner: ubuntu-latest
+            target: i686-pc-windows-gnu
+            archive: zip
+            command: cross
+            
+            
     steps: 
-
-        
-
-
+      - name: set NOW
+        run: |
+          echo "::set-env name=NOW::$(date +'%Y-%m-%dT%H:%M:%S')"
       - name: Checkout
         uses: actions/checkout@v3
  
@@ -57,17 +63,27 @@ jobs:
         uses: ncipollo/release-action@v1  
         with:
           tag: Android
-          name: Android_$(date +'%Y-%m-%dT%H:%M:%S')
+          name: Android_${{ env.NOW }}
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: 'target/armv7-linux-androideabi/release/libcryptg.so'
 
-      - name: Windows_Release
-        if: matrix.name == 'Windows'
+      - name: Windows64_Release
+        if: matrix.name == 'Windows64'
         uses: ncipollo/release-action@v1
         with:
           tag: Windows
-          name: Windows_$(date +'%Y-%m-%dT%H:%M:%S')
+          name: Windows_${{ env.NOW }}
           body: https://github.com/tdlib/td/tree/${{ matrix.command }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: 'target/x86_64-pc-windows-gnu/release/cryptg.dll'
+
+      - name: Windows32_Release
+        if: matrix.name == 'Windows32'
+        uses: ncipollo/release-action@v1
+        with:
+          tag: Windows
+          name: Windows_${{ env.NOW }}
+          body: https://github.com/tdlib/td/tree/${{ matrix.command }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: 'target/i686-pc-windows-gnu/release/cryptg.dll'
