@@ -7,7 +7,7 @@ fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a m
     let mut test = [0u8; 1024];
     {
         let mut test = &mut test[..];
-        test.write(s.as_bytes()).unwrap();
+        test.write_all(s.as_bytes()).unwrap();
     }
     
     return &test;
@@ -25,7 +25,7 @@ fn decrypt_ige<'a>(cipher: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a 
     let mut test = [0u8; 1024];
     {
         let mut test = &mut test[..];
-        test.write(s.as_bytes()).unwrap();
+        test.write_all(s.as_bytes()).unwrap();
     }
     
     return &test;
