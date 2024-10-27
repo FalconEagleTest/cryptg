@@ -4,9 +4,9 @@ fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a m
 
     let cipher = grammers_crypto::encrypt_ige(plain, &key_array, &iv_array);
     let s = format!("{:?}", &cipher);
+    let x=s.as_bytes();
     
-    
-    return s.as_bytes();
+    return &x;
     
 
 
@@ -18,9 +18,9 @@ fn decrypt_ige<'a>(cipher: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a 
 
     let plain = grammers_crypto::decrypt_ige(cipher, &key_array, &iv_array);
     let s = format!("{:?}", &plain);
+    let x=s.as_bytes();
     
-    
-    return s.as_bytes();
+    return &x;
 
 }
 
