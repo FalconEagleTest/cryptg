@@ -38,7 +38,7 @@ jobs:
     steps: 
       - name: set NOW
         run: |
-          run: echo “NOW=$(date +’%Y.%m.%d’)” >> $GITHUB_ENV
+          run: echo "NOW=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v3
  
