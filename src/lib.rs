@@ -10,7 +10,7 @@ fn encrypt_ige<'a>(plain: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a m
         test.write(s.as_bytes()).unwrap();
     }
     
-    return test;
+    return &test;
     
 
 
@@ -28,7 +28,7 @@ fn decrypt_ige<'a>(cipher: &'a [u8], key_array: &'a mut [u8; 32], iv_array: &'a 
         test.write(s.as_bytes()).unwrap();
     }
     
-    return test;
+    return &test;
 
 }
 
